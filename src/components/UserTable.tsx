@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { User } from "../types/User";
-import Button from "./ui/Button";
 
 interface UserTableProps {
   users: User[];
