@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { User } from "../types/User";
+import Button from "./ui/Button";
 
 interface UserTableProps {
   users: User[];
@@ -79,12 +81,12 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
                   >
                     Delete
                   </button>
-                  <a
-                    href={`/user/${user.id}`}
+                  <Link
+                    to={`/user/${user.id}`}
                     className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
                   >
                     View
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>

@@ -24,6 +24,14 @@ export const updateUser = async (
   return response.data;
 };
 
+// export const updateUser = async (
+//   id: number,
+//   user: Partial<User>
+// ): Promise<User> => {
+//   const response = await axios.patch(`${API_URL}/${id}`, user);
+//   return response.data;
+// };
+
 // Delete a user
 export const deleteUser = async (userId: number): Promise<void> => {
   await axios.delete(`${API_URL}/${userId}`);

@@ -18,6 +18,7 @@ const Home: React.FC = () => {
   const [message, setMessage] = useState("");
   const [showMessageModal, setShowMessageModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     loadUsers();
@@ -84,6 +85,10 @@ const Home: React.FC = () => {
     setShowMessageModal(false);
   };
 
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container px-4 lg:px-10 flex flex-col justify-center items-center w-full">
       <div className="flex justify-center lg:justify-start items-center w-full pb-4">
@@ -97,13 +102,23 @@ const Home: React.FC = () => {
           Create User
         </button>
       </div>
+      <div className="flex justify-center lg:justify-start items-center w-full pb-4">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 mb-4 mr-4 rounded bg-transparent w-full"
+        />
+      </div>
+
       {loading ? (
         <div className="py-40">
           <Spinner />
         </div>
       ) : (
         <UserTable
-          users={users}
+          users={searchTerm ? filteredUsers : users}
           onEdit={handleEditUser}
           onDelete={handleDeleteUser}
         />

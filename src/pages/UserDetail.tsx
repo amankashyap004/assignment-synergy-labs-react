@@ -19,13 +19,13 @@ const UserDetails: React.FC = () => {
 
   if (!user)
     return (
-      <div className="py-40">
+      <div className="py-48">
         <Spinner />
       </div>
     );
 
   return (
-    <div className="container px-4 lg:px-10 py-4 flex justify-center items-center w-full">
+    <div className="container px-4 lg:px-10 py-6 flex justify-center items-center w-full">
       <div className="flex flex-col justify-center items-center w-full lg:w-3/4">
         <h1 className="text-2xl font-semibold text-center mb-6">
           User Details
